@@ -2,6 +2,7 @@ package Tests;
 
 import Pages.HomePage;
 import Pages.LoginPage;
+import Pages.ProductPage;
 import Utils.BrowserFactory;
 import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
@@ -18,7 +19,11 @@ public class Base {
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     HomePage homePage = PageFactory.initElements(driver, HomePage.class);
 
+    ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
+
     TakeScreenshots takeScreenshots = new TakeScreenshots();
+
+
 
     ReadFromExcel readFromExcel;
 

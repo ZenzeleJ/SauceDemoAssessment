@@ -24,5 +24,9 @@ public class LoginTests extends Base{
         homePage.verifyProductLabelIsDisplayedInHomePage();
         takeScreenshots.takeSnapShot(driver,"Home Screen");
     }
+    @Test(dependsOnMethods = "verifyLoginSuccess")
+    public void clickAddToCart(){
+        productPage.clickAddToCart();
+    }
 
 }
