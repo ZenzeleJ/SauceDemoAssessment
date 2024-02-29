@@ -3,6 +3,7 @@ package Tests;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Pages.ProductPage;
+import Pages.YourCartPage;
 import Utils.BrowserFactory;
 import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
@@ -20,7 +21,7 @@ public class Base {
     HomePage homePage = PageFactory.initElements(driver, HomePage.class);
 
     ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
-
+    YourCartPage yourCartPage = PageFactory.initElements(driver, YourCartPage.class);
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
 

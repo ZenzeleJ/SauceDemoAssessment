@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.YourCartPage;
 import org.testng.annotations.Test;
 
 @Test
@@ -28,5 +29,18 @@ public class LoginTests extends Base{
     public void clickAddToCart(){
         productPage.clickAddToCart();
     }
-
+    @Test(dependsOnMethods = "clickAddToCart")
+    public void verifyAddedToCart(){
+        productPage.verifyAddedToCart();
+        takeScreenshots.takeSnapShot(driver,"Add To Cart");
+    }
+    @Test(dependsOnMethods = "verifyAddedToCart")
+    public void clickNavigateToCart(){
+        YourCartPage.clickNavigateToCart();
+    }
+    @Test(dependsOnMethods = "clickNavigateToCart")
+    public void verifyYourCartLabelIsDisplayedInCartPage(){
+        YourCartPage.verifyYourCartLabelIsDisplayedInCartPage();
+        takeScreenshots.takeSnapShot(driver,"Your Cart");
+    }
 }
