@@ -25,13 +25,13 @@ public class Base {
 
 
 
-    ReadFromExcel readFromExcel;
-
-    {
-        try {
-            readFromExcel = new ReadFromExcel();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    ReadFromExcel readFromExcel;
+//
+//    {
+//        try {
+//            readFromExcel = new ReadFromExcel();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }
