@@ -35,8 +35,7 @@ public class LoginPage {
         password_id.sendKeys(password);
     }
 
-    public void clickLoginButton() {
-        loginButton_id.click();
+    public void clickLoginButton() {loginButton_id.click();
     }
 
 
