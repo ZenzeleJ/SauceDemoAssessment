@@ -26,6 +26,5 @@ public class HomePage {
         Assert.assertEquals(productText,"Products");
     }
 
-    // Delete this
 
 }

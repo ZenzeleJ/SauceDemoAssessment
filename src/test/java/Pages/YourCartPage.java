@@ -9,6 +9,7 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
+
 public class YourCartPage {
 
     public static WebDriver driver;
@@ -18,9 +19,10 @@ public class YourCartPage {
     @FindBy(xpath = "//span[@class='title'][contains(.,'Your Cart')]")
     static WebElement yourCartLabel_xpath;
 
-    @FindBy(xpath = "//div[@class='inventory_item_name '][contains(.,'Sauce Labs Backpack')]")
+    @FindBy(xpath = "//div[@class='inventory_item_name'][contains(.,'Sauce Labs Backpack')]")
     static WebElement SauceLabsBackpack_xpath;
 
+   public static String ProductTextInCartPage;
 
     public static void clickNavigateToCart() {
         shoppingCart_xpath.click();
@@ -33,9 +35,8 @@ public class YourCartPage {
     }
 
     public static void verifySauceLabsBackpackProductIsDisplayedInCartPage() {
-//        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOf(yourCartLabel_xpath));
-        String productText = SauceLabsBackpack_xpath.getText();
-        Assert.assertEquals(productText, "Sauce Labs Backpack");
+        ProductTextInCartPage = SauceLabsBackpack_xpath.getText();
+        Assert.assertEquals(ProductTextInCartPage, "Sauce Labs Backpack");
     }
 }
 
