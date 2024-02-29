@@ -18,7 +18,6 @@ public class Base {
     final WebDriver driver = browserFactory.startBrowser("chRoMe", "https://www.saucedemo.com/");
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     HomePage homePage = PageFactory.initElements(driver, HomePage.class);
-
     ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
 
     TakeScreenshots takeScreenshots = new TakeScreenshots();
