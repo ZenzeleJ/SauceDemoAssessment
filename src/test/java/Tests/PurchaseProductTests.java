@@ -68,4 +68,23 @@ public class PurchaseProductTests extends Base {
         CheckOutInformationPage.verifyCheckoutYourInformationPage();
         takeScreenshots.takeSnapShot(driver, "Checkout: Your Information");
     }
+    @Test(dependsOnMethods = "verifyCheckoutYourInformationPage")
+    public void enterFirstNameTests() {
+        CheckOutInformationPage.enterFirstName("John");
+    }
+    @Test(dependsOnMethods = "verifyCheckoutYourInformationPage")
+    public void enterLastnameTests() {
+        CheckOutInformationPage.enterLastName("Uys");
+        //loginPage.enterUsername(readFromExcel.username);
+    }
+    @Test(dependsOnMethods = "verifyCheckoutYourInformationPage")
+    public void enterPostalCodeTests() {
+        CheckOutInformationPage.enterPostalCode("1458");
+        takeScreenshots.takeSnapShot(driver, "Details");
+
+    }
+    @Test(dependsOnMethods = {"enterFirstNameTests","enterLastnameTests","enterPostalCodeTests"})
+    public void clickContinueButton() {checkoutInformationPage.clickContinueButton();
+    }
+
 }
