@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.CheckOutInformationPage;
 import Pages.YourCartPage;
 import org.testng.annotations.Test;
 
@@ -55,8 +56,16 @@ public class PurchaseProductTests extends Base {
         YourCartPage.verifySauceLabsBackpackProductIsDisplayedInCartPage();
         takeScreenshots.takeSnapShot(driver, "Sauce Labs Backpack");
     }
+
     @Test(dependsOnMethods = "verifySauceLabsBackpackProductIsDisplayedInCartPage")
     public void clickCheckout() {
         YourCartPage.clickCheckout();
+        takeScreenshots.takeSnapShot(driver, "checkout");
+    }
+
+    @Test(dependsOnMethods = "clickCheckout")
+    public void verifyCheckoutYourInformationPage() {
+        CheckOutInformationPage.verifyCheckoutYourInformationPage();
+        takeScreenshots.takeSnapShot(driver, "Checkout: Your Information");
     }
 }
