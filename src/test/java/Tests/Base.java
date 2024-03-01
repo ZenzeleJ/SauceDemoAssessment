@@ -20,6 +20,7 @@ public class Base extends ReadFromExcel{
     ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
     YourCartPage yourCartPage = PageFactory.initElements(driver, YourCartPage.class);
     CheckOutInformationPage checkoutInformationPage = PageFactory.initElements(driver, CheckOutInformationPage.class);
+    CheckoutOverviewPage checkoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
     public Base() throws IOException {

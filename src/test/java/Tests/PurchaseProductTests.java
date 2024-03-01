@@ -1,6 +1,7 @@
 package Tests;
 
 import Pages.CheckOutInformationPage;
+import Pages.CheckoutOverviewPage;
 import Pages.YourCartPage;
 import org.testng.annotations.Test;
 
@@ -88,6 +89,16 @@ public class PurchaseProductTests extends Base {
     }
     @Test(dependsOnMethods = {"enterFirstNameTests","enterLastnameTests","enterPostalCodeTests"})
     public void clickContinueButton() {checkoutInformationPage.clickContinueButton();
+    }
+    @Test(dependsOnMethods = "clickContinueButton")
+    public void CheckoutOverviewTests (){
+        checkoutOverviewPage.verifyCheckoutOverviewLabel();
+
+    }
+    @Test(dependsOnMethods = "CheckoutOverviewTests")
+    public void verifySauceLabsBackpackProductIsDisplayedInCheckOverviewPage() {
+        CheckoutOverviewPage.verifySauceLabsBackpackProductIsDisplayedInCheckOverviewPage();
+        takeScreenshots.takeSnapShot(driver, "Check Out Overview");
     }
 
 }
