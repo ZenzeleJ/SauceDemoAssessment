@@ -55,4 +55,8 @@ public class PurchaseProductTests extends Base {
         YourCartPage.verifySauceLabsBackpackProductIsDisplayedInCartPage();
         takeScreenshots.takeSnapShot(driver, "Sauce Labs Backpack");
     }
+    @Test(dependsOnMethods = "verifySauceLabsBackpackProductIsDisplayedInCartPage")
+    public void clickCheckout() {
+        YourCartPage.clickCheckout();
+    }
 }
