@@ -4,17 +4,20 @@ import Pages.CheckOutInformationPage;
 import Pages.YourCartPage;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 @Test
 public class PurchaseProductTests extends Base {
 
+    public PurchaseProductTests() throws IOException {
+    }
+
     public void enterUsernameTests() {
-        loginPage.enterUsername("standard_user");
-        //loginPage.enterUsername(readFromExcel.username);
+        loginPage.enterUsername(username);
     }
 
     public void enterPasswordTests() {
-        loginPage.enterPassword("secret_sauce");
-//        loginPage.enterPassword(readFromExcel.password);
+        loginPage.enterPassword(password);
         takeScreenshots.takeSnapShot(driver, "Login Screen");
     }
 

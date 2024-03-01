@@ -2,11 +2,15 @@ package Tests;
 
 import Pages.*;
 import Utils.BrowserFactory;
+import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
 
-public class Base {
+import java.io.IOException;
+
+public class Base extends ReadFromExcel{
 
     BrowserFactory browserFactory = new BrowserFactory();
 
@@ -18,15 +22,7 @@ public class Base {
     CheckOutInformationPage checkoutInformationPage = PageFactory.initElements(driver, CheckOutInformationPage.class);
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
+    public Base() throws IOException {
+    }
 
-
-//    ReadFromExcel readFromExcel;
-//
-//    {
-//        try {
-//            readFromExcel = new ReadFromExcel();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 }
