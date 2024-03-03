@@ -3,15 +3,17 @@ package ExtentReports;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import org.testng.annotations.Test;
 
 import java.io.File;
+import java.io.IOException;
 
 public class ExtentReportManager {
-    static String Report_Dir = "C:\\Users\\BazamileMjoli\\Documents\\Projects\\SauceDemoAssessment\\src\\test\\java\\TestData\\TestData.xlsx";
-    //static String Report_Dir = "E:\\Projects\\SauceDemoFirstGroup2024\\src\\test\\java\\TestData\\TestData.xlsx";
+    static final String Report_Dir = "./Reports/Sauce Demo Assessment Report.html";
     private static ExtentReports extentReports;
     private static ExtentSparkReporter extentSparkReporter;
-
+private ExtentReportManager() {
+}
     public static ExtentReports extentSetup() {
         extentReports = new ExtentReports();
         extentSparkReporter = new ExtentSparkReporter(new File(Report_Dir));
@@ -26,5 +28,10 @@ public class ExtentReportManager {
         return extentReports;
 
     }
+
+//    @Test
+//    public void test(){
+//        System.out.println(Report_Dir);
+//    }
 
 }

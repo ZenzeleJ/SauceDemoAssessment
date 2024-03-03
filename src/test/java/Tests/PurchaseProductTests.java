@@ -10,15 +10,14 @@ import java.io.IOException;
 @Test
 public class PurchaseProductTests extends Base {
 
-    public PurchaseProductTests() throws IOException {
-    }
+
 
     public void enterUsernameTests() {
-        loginPage.enterUsername(username);
+        loginPage.enterUsername(readFromExcel.username);
     }
 
     public void enterPasswordTests() {
-        loginPage.enterPassword(password);
+        loginPage.enterPassword(readFromExcel.password);
         takeScreenshots.takeSnapShot(driver, "Login Screen");
     }
 

@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class Base extends ReadFromExcel{
+public class Base {
 
     BrowserFactory browserFactory = new BrowserFactory();
 
@@ -23,7 +23,14 @@ public class Base extends ReadFromExcel{
     CheckoutOverviewPage checkoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
-    public Base() throws IOException {
+  ReadFromExcel readFromExcel;
+
+    {
+        try {
+            readFromExcel = new ReadFromExcel();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
