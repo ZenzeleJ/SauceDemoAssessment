@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class ReadFromExcel {
 
-    String testData_dir=System.getProperty("user.dir")+"/src/test/java/TestData/data.xlsx";
+    String testData_dir="./src/test/java/TestData/data.xlsx";
     FileInputStream fis = new FileInputStream(testData_dir);
     XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
