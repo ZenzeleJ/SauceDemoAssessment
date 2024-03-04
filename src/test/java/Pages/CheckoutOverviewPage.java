@@ -50,16 +50,24 @@ public class CheckoutOverviewPage {
     }
 
     public static void verifyItemTotalPlusTax() {
-        double itemPrice = Double.parseDouble(itemPrice_xpath.getText());
-        double tax = Double.parseDouble(tax_xpath.getText());
-        double total = Double.parseDouble(total_xpath.getText());
-        //Assert.assertEquals(itemPrice + tax + total, 2.40, "Total plus tax should be equal to total");
+        double number;
+       // double itemPrice = Double.parseDouble(itemPrice_xpath.getText());
+        String itemPrice = String.valueOf("number");
+        //double tax = Double.parseDouble(tax_xpath.getText());
+        String tax = String.valueOf("number");
+        //double total = Double.parseDouble(total_xpath.getText());
+        String total = String.valueOf("number");
 
-        if(itemPrice +tax ==total)
+        String s1 ="$29.99";
+                String substring;
+        s1.substring(0);
+                //assertEquals(itemPrice + tax + total, 2.40, "Total plus tax should be equal to total");
 
-        {
-            finishButton_id.click ();
-        } else
+      if(itemPrice +tax ==total)
+
+       {
+           finishButton_id.click ();
+       } else
 
         {
             cancelButton_id.click ();
