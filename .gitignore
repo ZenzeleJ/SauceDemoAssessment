@@ -21,7 +21,7 @@ Screenshots/
 .springBeans
 .sts4-cache
 null/
-
+Reports/
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -31,7 +31,6 @@ null/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
-Reports/
 ### VS Code ###
 .vscode/
 

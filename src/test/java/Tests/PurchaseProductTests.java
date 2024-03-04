@@ -1,19 +1,23 @@
 package Tests;
 
+import Pages.CheckOutInformationPage;
+import Pages.CheckoutOverviewPage;
 import Pages.YourCartPage;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 @Test
 public class PurchaseProductTests extends Base {
 
+
+
     public void enterUsernameTests() {
-        loginPage.enterUsername("standard_user");
-        //loginPage.enterUsername(readFromExcel.username);
+        loginPage.enterUsername(readFromExcel.username);
     }
 
     public void enterPasswordTests() {
-        loginPage.enterPassword("secret_sauce");
-//        loginPage.enterPassword(readFromExcel.password);
+        loginPage.enterPassword(readFromExcel.password);
         takeScreenshots.takeSnapShot(driver, "Login Screen");
     }
 
@@ -55,4 +59,45 @@ public class PurchaseProductTests extends Base {
         YourCartPage.verifySauceLabsBackpackProductIsDisplayedInCartPage();
         takeScreenshots.takeSnapShot(driver, "Sauce Labs Backpack");
     }
+
+    @Test(dependsOnMethods = "verifySauceLabsBackpackProductIsDisplayedInCartPage")
+    public void clickCheckout() {
+        YourCartPage.clickCheckout();
+        takeScreenshots.takeSnapShot(driver, "checkout");
+    }
+
+    @Test(dependsOnMethods = "clickCheckout")
+    public void verifyCheckoutYourInformationPage() {
+        CheckOutInformationPage.verifyCheckoutYourInformationPage();
+        takeScreenshots.takeSnapShot(driver, "Checkout: Your Information");
+    }
+    @Test(dependsOnMethods = "verifyCheckoutYourInformationPage")
+    public void enterFirstNameTests() {
+        CheckOutInformationPage.enterFirstName("John");
+    }
+    @Test(dependsOnMethods = "verifyCheckoutYourInformationPage")
+    public void enterLastnameTests() {
+        CheckOutInformationPage.enterLastName("Uys");
+        //loginPage.enterUsername(readFromExcel.username);
+    }
+    @Test(dependsOnMethods = "verifyCheckoutYourInformationPage")
+    public void enterPostalCodeTests() {
+        CheckOutInformationPage.enterPostalCode("1458");
+        takeScreenshots.takeSnapShot(driver, "Details");
+
+    }
+    @Test(dependsOnMethods = {"enterFirstNameTests","enterLastnameTests","enterPostalCodeTests"})
+    public void clickContinueButton() {checkoutInformationPage.clickContinueButton();
+    }
+    @Test(dependsOnMethods = "clickContinueButton")
+    public void CheckoutOverviewTests (){
+        checkoutOverviewPage.verifyCheckoutOverviewLabel();
+
+    }
+    @Test(dependsOnMethods = "CheckoutOverviewTests")
+    public void verifySauceLabsBackpackProductIsDisplayedInCheckOverviewPage() {
+        CheckoutOverviewPage.verifySauceLabsBackpackProductIsDisplayedInCheckOverviewPage();
+        takeScreenshots.takeSnapShot(driver, "Check Out Overview");
+    }
+
 }

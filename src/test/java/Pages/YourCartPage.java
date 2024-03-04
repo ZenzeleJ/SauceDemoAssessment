@@ -21,6 +21,8 @@ public class YourCartPage {
 
     @FindBy(xpath = "//div[@class='inventory_item_name'][contains(.,'Sauce Labs Backpack')]")
     static WebElement SauceLabsBackpack_xpath;
+    @FindBy(xpath = "//button[@id='checkout']")
+    static WebElement checkout_xpath;
 
    public static String ProductTextInCartPage;
 
@@ -37,6 +39,9 @@ public class YourCartPage {
     public static void verifySauceLabsBackpackProductIsDisplayedInCartPage() {
         ProductTextInCartPage = SauceLabsBackpack_xpath.getText();
         Assert.assertEquals(ProductTextInCartPage, "Sauce Labs Backpack");
+    }
+    public static void clickCheckout() {
+        checkout_xpath.click();
     }
 }
 
