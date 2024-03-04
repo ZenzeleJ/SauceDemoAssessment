@@ -45,7 +45,7 @@ public class CheckOutInformationPage {
 
         postalCodeField_xpath.sendKeys(postalCode);
     }
-    public void clickContinueButton() {
+    public static void clickContinueButton() {
         continueButton_xpath.click();
     }
 }
