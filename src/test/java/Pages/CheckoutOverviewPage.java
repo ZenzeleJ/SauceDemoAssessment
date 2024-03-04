@@ -17,13 +17,11 @@ public class CheckoutOverviewPage {
     @FindBy(xpath = "//div[@class='inventory_item_name'][contains(.,'Sauce Labs Backpack')]")
     static WebElement SauceLabsBackpack_xpath;
 
-    @FindBy(xpath = "//div[@class='inventory_item_price'][contains(.,'$29.99')]")
+    @FindBy(xpath = "//div[@class='summary_subtotal_label']")
     static WebElement itemPrice_xpath;
 
-    @FindBy(xpath = "//div[@class='summary_tax_label'][contains(.,'Tax: $2.40')]")
-    static WebElement tax_xpath;
 
-    @FindBy(xpath = "//div[@class='summary_info_label summary_total_label'][contains(.,'Total: $32.39')]")
+    @FindBy(xpath = "//div[@class='summary_info_label summary_total_label']")
     static WebElement total_xpath;
 
     @FindBy(id = "finish")
@@ -50,20 +48,17 @@ public class CheckoutOverviewPage {
     }
 
     public static void verifyItemTotalPlusTax() {
-        double number;
-       // double itemPrice = Double.parseDouble(itemPrice_xpath.getText());
-        String itemPrice = String.valueOf("number");
-        //double tax = Double.parseDouble(tax_xpath.getText());
-        String tax = String.valueOf("number");
-        //double total = Double.parseDouble(total_xpath.getText());
-        String total = String.valueOf("number");
 
-        String s1 ="$29.99";
-                String substring;
-        s1.substring(0);
-                //assertEquals(itemPrice + tax + total, 2.40, "Total plus tax should be equal to total");
+        // Resolve Item Total
+        float itemTotal = Float.parseFloat(itemPrice_xpath.getText().replace("Item total: $",""));
+        float ItemTotalPlusTax= (float) (itemTotal+(itemTotal*0.08));
 
-      if(itemPrice +tax ==total)
+        // Resolve Total
+        float Total = Float.parseFloat(total_xpath.getText().replace("Total: $",""));
+
+
+
+      if(ItemTotalPlusTax==Total)
 
        {
            finishButton_id.click ();
