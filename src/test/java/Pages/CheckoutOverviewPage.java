@@ -51,7 +51,7 @@ public class CheckoutOverviewPage {
 
         // Resolve Item Total
         float itemTotal = Float.parseFloat(itemPrice_xpath.getText().replace("Item total: $",""));
-        float ItemTotalPlusTax= (float) (itemTotal+(itemTotal*0.08));
+        float ItemTotalPlusTax= (float)(itemTotal+(itemTotal*0.08));
 
         // Resolve Total
         float Total = Float.parseFloat(total_xpath.getText().replace("Total: $",""));
