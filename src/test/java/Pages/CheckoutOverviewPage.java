@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.Formatter;
 
 public class CheckoutOverviewPage {
     public static WebDriver driver;
@@ -51,15 +52,16 @@ public class CheckoutOverviewPage {
 
         // Resolve Item Total
         float itemTotal = Float.parseFloat(itemPrice_xpath.getText().replace("Item total: $",""));
-        float ItemTotalPlusTax= (float)(itemTotal+(itemTotal*0.08));
-
+        float ItemTotalPlusTax= (float) (itemTotal+(itemTotal*0.08));
+        Formatter formItemTotalPlusTax = new Formatter();
+        formItemTotalPlusTax.format("%.2f",ItemTotalPlusTax);
         // Resolve Total
         float Total = Float.parseFloat(total_xpath.getText().replace("Total: $",""));
+        String s = formItemTotalPlusTax.toString();
+        String t = Float.toString(Total);
 
 
-
-      if(ItemTotalPlusTax==Total)
-
+      if(s.equals(t))
        {
            finishButton_id.click ();
        } else
