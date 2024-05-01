@@ -11,7 +11,7 @@ import org.testng.Assert;
 import java.time.Duration;
 
 
-public class CheckOutInformationPage {
+public class CheckoutInformationPage {
 
     public static WebDriver driver;
     @FindBy(xpath = "//span[@class='title'][contains(.,'Checkout: Your Information')]")

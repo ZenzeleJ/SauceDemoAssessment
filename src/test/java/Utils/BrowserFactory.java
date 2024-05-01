@@ -19,7 +19,7 @@ public class BrowserFactory {
         if ("chrome".equalsIgnoreCase(browserChoice)) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions chromeOptions = new ChromeOptions();
-           // chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("--headless");
             driver = new ChromeDriver(chromeOptions);
 
 

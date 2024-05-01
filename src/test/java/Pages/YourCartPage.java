@@ -32,8 +32,8 @@ public class YourCartPage {
 
     public static void verifyYourCartLabelIsDisplayedInCartPage() {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOf(yourCartLabel_xpath));
-        String productText = yourCartLabel_xpath.getText();
-        Assert.assertEquals(productText, "Your Cart");
+        String yourCartText = yourCartLabel_xpath.getText();
+        Assert.assertEquals(yourCartText, "Your Cart");
     }
 
     public static void verifySauceLabsBackpackProductIsDisplayedInCartPage() {

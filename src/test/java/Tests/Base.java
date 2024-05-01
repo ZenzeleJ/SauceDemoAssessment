@@ -6,7 +6,6 @@ import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.Test;
 
 import java.io.IOException;
 
@@ -19,8 +18,9 @@ public class Base {
     HomePage homePage = PageFactory.initElements(driver, HomePage.class);
     ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
     YourCartPage yourCartPage = PageFactory.initElements(driver, YourCartPage.class);
-    CheckOutInformationPage checkoutInformationPage = PageFactory.initElements(driver, CheckOutInformationPage.class);
+    CheckoutInformationPage checkoutInformationOverviewPage = PageFactory.initElements(driver, CheckoutInformationPage.class);
     CheckoutOverviewPage checkoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
+    CheckoutCompletePage checkoutCompletePage = PageFactory.initElements (driver, CheckoutCompletePage.class);
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
   ReadFromExcel readFromExcel;
