@@ -19,8 +19,9 @@ public class Base {
     HomePage homePage = PageFactory.initElements(driver, HomePage.class);
     ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
     YourCartPage yourCartPage = PageFactory.initElements(driver, YourCartPage.class);
-    CheckOutInformationPage checkoutInformationPage = PageFactory.initElements(driver, CheckOutInformationPage.class);
+    CheckOutInformationPage checkOutInformationPage = PageFactory.initElements(driver, CheckOutInformationPage.class);
     CheckoutOverviewPage checkoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
+    CheckoutCompletePage checkoutCompletePage = PageFactory.initElements (driver, CheckoutCompletePage.class);
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
   ReadFromExcel readFromExcel;
