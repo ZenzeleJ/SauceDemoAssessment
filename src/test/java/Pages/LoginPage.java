@@ -24,7 +24,6 @@ public class LoginPage {
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
-
     public LoginPage enterUsername(String username) {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOf(username_id));
         username_id.sendKeys(username);

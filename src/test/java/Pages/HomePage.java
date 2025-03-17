@@ -26,5 +26,4 @@ public class HomePage {
         Assert.assertEquals(productText,"Products");
     }
 
-
 }

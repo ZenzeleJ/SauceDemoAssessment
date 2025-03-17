@@ -10,8 +10,6 @@ import java.io.IOException;
 @Test
 public class PurchaseProductTests extends Base {
 
-
-
     public void enterUsernameTests() {
         loginPage.enterUsername(readFromExcel.username);
     }
@@ -45,65 +43,66 @@ public class PurchaseProductTests extends Base {
 
     @Test(dependsOnMethods = "verifyAddedToCart")
     public void clickNavigateToCart() {
-        YourCartPage.clickNavigateToCart();
+        yourCartPage.clickNavigateToCart();
     }
 
     @Test(dependsOnMethods = "clickNavigateToCart")
     public void verifyYourCartLabelIsDisplayedInCartPage() {
-        YourCartPage.verifyYourCartLabelIsDisplayedInCartPage();
+        yourCartPage.verifyYourCartLabelIsDisplayedInCartPage();
         takeScreenshots.takeSnapShot(driver, "Your Cart");
     }
 
     @Test(dependsOnMethods = "verifyYourCartLabelIsDisplayedInCartPage")
     public void verifySauceLabsBackpackProductIsDisplayedInCartPage() {
-        YourCartPage.verifySauceLabsBackpackProductIsDisplayedInCartPage();
+        yourCartPage.verifySauceLabsBackpackProductIsDisplayedInCartPage();
         takeScreenshots.takeSnapShot(driver, "Sauce Labs Backpack");
     }
 
     @Test(dependsOnMethods = "verifySauceLabsBackpackProductIsDisplayedInCartPage")
     public void clickCheckout() {
-        YourCartPage.clickCheckout();
+        yourCartPage.clickCheckout();
         takeScreenshots.takeSnapShot(driver, "checkout");
     }
 
     @Test(dependsOnMethods = "clickCheckout")
     public void verifyCheckoutYourInformationPage() {
-        CheckOutInformationPage.verifyCheckoutYourInformationPage();
+        checkOutInformationPage.verifyCheckoutYourInformationPage();
         takeScreenshots.takeSnapShot(driver, "Checkout: Your Information");
     }
     @Test(dependsOnMethods = "verifyCheckoutYourInformationPage")
     public void enterFirstNameTests() {
-        CheckOutInformationPage.enterFirstName(readFromExcel.firstName);
+        checkOutInformationPage.enterFirstName(readFromExcel.firstName);
     }
 
     @Test(dependsOnMethods = "verifyCheckoutYourInformationPage")
     public void enterLastNameTests() {
-        CheckOutInformationPage.enterLastName(readFromExcel.lastName);
+        checkOutInformationPage.enterLastName(readFromExcel.lastName);
     }
 
     @Test(dependsOnMethods = "verifyCheckoutYourInformationPage")
     public void enterPostalCodeTests() {
-        CheckOutInformationPage.enterPostalCode(readFromExcel.postalCode);
+        checkOutInformationPage.enterPostalCode(readFromExcel.postalCode);
         takeScreenshots.takeSnapShot(driver, "Details");
     }
     @Test(dependsOnMethods = {"enterFirstNameTests","enterLastNameTests","enterPostalCodeTests"})
     public void clickContinueButton() {
         CheckOutInformationPage.clickContinueButton();
     }
+
     @Test(dependsOnMethods = "clickContinueButton")
     public void CheckoutOverviewTests (){
-        CheckoutOverviewPage.verifyCheckoutOverviewLabel();
+        checkoutOverviewPage.verifyCheckoutOverviewLabel();
 
     }
     @Test(dependsOnMethods = "CheckoutOverviewTests")
     public void verifySauceLabsBackpackProductIsDisplayedInCheckOverviewPage() {
-        CheckoutOverviewPage.verifySauceLabsBackpackProductIsDisplayedInCheckOverviewPage();
+        checkoutOverviewPage.verifySauceLabsBackpackProductIsDisplayedInCheckOverviewPage();
         takeScreenshots.takeSnapShot(driver, "Check Out Overview");
     }
 
     @Test(dependsOnMethods = "verifySauceLabsBackpackProductIsDisplayedInCheckOverviewPage")
     public void verifyItemTotalPlusTax(){
-        CheckoutOverviewPage.verifyItemTotalPlusTax();
+        checkoutOverviewPage.verifyItemTotalPlusTax();
         takeScreenshots.takeSnapShot(driver, "Total with Tax");
     }
 
@@ -112,14 +111,21 @@ public class PurchaseProductTests extends Base {
         CheckoutOverviewPage.clickFinishButton();
     }
 
-    @Test(dependsOnMethods = "verifyItemTotalPlusTax")
-    public void clickCancelButton(){
-        CheckoutOverviewPage.clickCancelButton();
+//    @Test(dependsOnMethods = {"clickFinishButton"})
+//    public void clickBackHome() {checkoutCompletePage.clickBackHome ();}
+
+//    @Test(dependsOnMethods = "verifyItemTotalPlusTax")
+//    public void clickCancelButton(){
+//        CheckoutOverviewPage.clickCancelButton();
+//    }
+//
+    @Test(dependsOnMethods = {"clickFinishButton"})
+    public void clickBurgerMenuButton() {
+        checkoutCompletePage.clickBurgerMenuButton();
     }
 
-    @Test(dependsOnMethods = {"clickFinishButton", "clickCancelButton"})
-    public void clickBurgerMenuButton() {CheckoutOverviewPage.clickBurgerMenuButton();}
-
-    @Test(dependsOnMethods = {"clickBurgerMenuButton"})
-    public void clickLogoutFromBurgerMenu() {CheckoutOverviewPage.clickLogoutFromBurgerMenu ();}
+    /*@Test(dependsOnMethods = {"clickBurgerMenuButton"})
+    public void clickLogoutFromBurgerMenu() {
+        checkoutCompletePage.clickLogoutFromBurgerMenu ();
+    }*/
 }

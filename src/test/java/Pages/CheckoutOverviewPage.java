@@ -67,7 +67,10 @@ public class CheckoutOverviewPage {
 //        }
     }
 
-    public static void clickFinishButton() {finishButton.click();}
+    public static void clickFinishButton()
+    {
+        finishButton.click();
+    }
 
 //    public static void clickCancelButton() {cancelButton.click();}
 }

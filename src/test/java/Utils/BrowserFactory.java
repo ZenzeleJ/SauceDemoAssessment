@@ -22,7 +22,6 @@ public class BrowserFactory {
            // chromeOptions.addArguments("--headless");
             driver = new ChromeDriver(chromeOptions);
 
-
         } else if ("firefox".equalsIgnoreCase(browserChoice)) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
